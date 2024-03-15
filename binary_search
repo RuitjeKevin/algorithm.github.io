@@ -1,0 +1,47 @@
+<html>
+    <body>
+        <script>
+    var keuze;
+    var waarde;
+    var zoekgetal;
+    var getal;
+
+    window.alert("uit hoeveel getallen wil je raden?");
+
+    // het getal wat je hier invult wordt gebruikt als maximaal getal in de random lijst
+    keuze = Number(window.prompt('Enter a value for keuze'));
+    if (keuze > 10000 || keuze == 10000) {
+
+        // meer dan 10000 cijfers is heel moeilijk (vond ik leuk om te doen)
+        window.alert("ik weet niet hoe je dit van plan bent, maar veel geluk");
+    }
+    zoekgetal = Math.floor(Math.random() * keuze);
+
+    // hier pakt hij een random getal met als hoogste getal jouw keuze
+    waarde = 0;
+    window.alert("Kies een getal tussen de 0 en de " + keuze);
+
+    // het eerste getal wat je invult om te raden
+    getal = Number(window.prompt('Enter a value for getal'));
+    while (zoekgetal != getal) {
+        if (getal > zoekgetal) {
+
+            // het getal wat je invoert is te hoog
+            window.alert("Lager");
+        } else {
+
+            // het getal wat je invoert is te laag
+            window.alert("hoger");
+        }
+        getal = Number(window.prompt('Enter a value for getal'));
+
+        // de waarde gaat omhoog, dit is de ronde waar je bent
+        waarde = waarde + 1;
+    }
+    window.alert("Je hebt het in " + (waarde + 1) + " keer geraden");
+
+    // de waardes worden hier gebruikt om te vertellen hoevaak je hebt geraden
+    window.alert("Goed gedaan");
+        </script>
+    </body>
+</html>
